@@ -1,0 +1,110 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Header styles */
+header {
+    background-color: #DAFFEE;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 10px;
+}
+
+header img {
+    max-width: 150px;
+    display: inline-block;
+    float: left;
+    border-radius: 30px;
+}
+
+header p {
+    font-size: 24px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Account section */
+.acount {
+    display: inline-block;
+    border-radius: 30px;
+    float: right;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+
+}
+
+/* Main section */
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Product display section */
+.besttovar {
+    margin-bottom: 30px;
+}
+
+.besttovar p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Product item style */
+.tovar {
+    display: inline-block;
+    width: 400px;
+    margin-left: 17.5px;
+    margin-right: 17.5px;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 1px solid;
+}
+
+.tovar img {
+    width: 150px;
+    height: 200px;
+    border-radius: 5px;
+}
+
+.tovar p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.sosiska img{
+    height: 200px;
+}
+
+.tovar p:first-of-type {
+    font-weight: 50px;
+}
+
+/* Pagination style */
+.storinka1 {
+    font-weight:1000;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    bottom: 0;
+    width:auto ;
+}
+
+footer p {
+    margin: 5px 0;
+}
