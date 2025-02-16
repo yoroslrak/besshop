@@ -1,3 +1,4 @@
+@@ -1,76 +1,84 @@
 /* General styles */
 body {
     font-family: Arial, sans-serif;
@@ -77,68 +78,20 @@ main {
     transition: 1s;
     background-color: rgb(227, 255, 227);
 }
-
-
 .tovar img {
     width: 150px;
     height: 200px;
-    border-radius: 5px;
-}
-
-.tovar p {
-    margin: 10px 0;
-    font-size: 16px;
-}
-
-.sosiska img{
-    height: 200px;
-}
-
-.tovar p:first-of-type {
-    font-weight: 50px;
-}
-
-/* Pagination style */
-.storinka1 {
-    font-weight:1000;
-}
-
-/* Footer styles */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    bottom: 0;
-    width:auto ;
-}
-
+@@ -108,3 +116,39 @@
 footer p {
     margin: 5px 0;
 }
-
 .koshik:hover{
     transform: scale(1.2);
     transition: 1s;
 }
-
-/* Додаємо стилі для спливаючого тексту */
-.cart-price {
-    display: none; /* Сховати ціну за замовчуванням */
-    position: absolute;
-    top: -25px; /* Позиція вище кошика */
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 14px;
+.koshik {
+    transition: 1s;
 }
-.koshik:hover .cart-price {
-    display: block; /* Показати ціну при наведенні */
-}
-
-
 .add-to-cart {
     margin-top: 10px;
     padding: 5px 10px;
@@ -147,13 +100,11 @@ footer p {
     background-color: white;
     transition: 1s;
 }
-
 .tovar:hover   .add-to-cart{
     background-color:rgb(180, 255, 180) ;
     transition: 1s;
     border: 1px solid black;
 }
-
 .cart-info {
     display: none;
     position: absolute;
@@ -164,4 +115,3 @@ footer p {
     top: 15px;
     left: 60px;
 }
-
