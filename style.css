@@ -95,6 +95,8 @@ footer p {
 
 .koshik {
     transition: 1s;
+    width:30px;
+    height:auto;
 }
 
 /* Add to cart button styles */
