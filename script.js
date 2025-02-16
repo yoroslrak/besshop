@@ -20,10 +20,32 @@ function addToCart(product) {
 
 // Функция для обновления информации о корзине
 function updateCartInfo() {
-    // Считаем общую цену
     const total = cart.reduce((sum, price) => sum + price, 0);
+    const itemCount = cart.length;
+    
     // Обновляем текст в корзине
-    cartInfo.textContent = `Ціна: ${total} грн`;
+    cartInfo.innerHTML = `
+        Ціна: ${total} грн <br>
+        Кількість товарів: ${itemCount} <br>
+        <button id="clear-cart">Очистити кошик</button>
+        <button id="place-order">Оформити замовлення</button>
+    `;
+    
+    // Слушатели для кнопок очистки и оформления заказа
+    document.getElementById('clear-cart').addEventListener('click', clearCart);
+    document.getElementById('place-order').addEventListener('click', placeOrder);
+}
+
+// Функция для очистки корзины
+function clearCart() {
+    cart = [];
+    updateCartInfo(); // Обновляем информацию о корзине
+}
+
+// Функция для оформления заказа (просто очищает корзину)
+function placeOrder() {
+    alert('Ваше замовлення прийнято!');
+    clearCart(); // Очистить корзину после оформления
 }
 
 // Добавляем обработчики событий на кнопки добавления товара в корзину
