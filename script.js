@@ -1,32 +1,32 @@
 let cart = [];
 
-// Отримуємо всі кнопки "Додати в кошик"
+// Получаем все кнопки "Добавить в корзину"
 const addToCartButtons = document.querySelectorAll('.add-to-cart');
 
-// Отримуємо елемент для відображення кошика
+// Получаем элемент для отображения корзины
 const cartIcon = document.querySelector('.koshik');
 const cartInfo = document.createElement('div');
 cartInfo.classList.add('cart-info');
 cartIcon.parentElement.appendChild(cartInfo);
 
-// Функція для додавання товару в кошик
+// Функция для добавления товара в корзину
 function addToCart(product) {
-    // Отримуємо ціну товару
+    // Получаем цену товара
     const price = parseInt(product.getAttribute('data-price'));
-    // Додаємо товар у кошик (ціна)
+    // Добавляем товар в корзину (цену)
     cart.push(price);
     updateCartInfo();
 }
 
-// Функція для оновлення інформації про кошик
+// Функция для обновления информации о корзине
 function updateCartInfo() {
-    // Обчислюємо загальну ціну
+    // Считаем общую цену
     const total = cart.reduce((sum, price) => sum + price, 0);
-    // Оновлюємо текст в кошику
+    // Обновляем текст в корзине
     cartInfo.textContent = `Ціна: ${total} грн`;
 }
 
-// Додаємо слухачі подій на кнопки додавання товару в кошик
+// Добавляем обработчики событий на кнопки добавления товара в корзину
 addToCartButtons.forEach(button => {
     button.addEventListener('click', () => {
         const product = button.closest('.tovar');
@@ -34,12 +34,12 @@ addToCartButtons.forEach(button => {
     });
 });
 
-// Показуємо кошик при наведенні на іконку
+// Показываем корзину при наведении на иконку
 cartIcon.addEventListener('mouseover', () => {
     cartInfo.style.display = 'block';
 });
 
-// Приховуємо кошик, коли миша покидає іконку
+// Скрываем корзину, когда мышь покидает иконку
 cartIcon.addEventListener('mouseout', () => {
     cartInfo.style.display = 'none';
 });
