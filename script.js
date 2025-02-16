@@ -1,12 +1,14 @@
-@@ -0,0 +1,46 @@
 let cart = [];
+
 // Отримуємо всі кнопки "Додати в кошик"
 const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
 // Отримуємо елемент для відображення кошика
 const cartIcon = document.querySelector('.koshik');
 const cartInfo = document.createElement('div');
 cartInfo.classList.add('cart-info');
 cartIcon.parentElement.appendChild(cartInfo);
+
 // Функція для додавання товару в кошик
 function addToCart(product) {
     // Отримуємо ціну товару
@@ -15,6 +17,7 @@ function addToCart(product) {
     cart.push(price);
     updateCartInfo();
 }
+
 // Функція для оновлення інформації про кошик
 function updateCartInfo() {
     // Обчислюємо загальну ціну
@@ -22,6 +25,7 @@ function updateCartInfo() {
     // Оновлюємо текст в кошику
     cartInfo.textContent = `Ціна: ${total} грн`;
 }
+
 // Додаємо слухачі подій на кнопки додавання товару в кошик
 addToCartButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -29,10 +33,12 @@ addToCartButtons.forEach(button => {
         addToCart(product);
     });
 });
+
 // Показуємо кошик при наведенні на іконку
 cartIcon.addEventListener('mouseover', () => {
     cartInfo.style.display = 'block';
 });
+
 // Приховуємо кошик, коли миша покидає іконку
 cartIcon.addEventListener('mouseout', () => {
     cartInfo.style.display = 'none';
