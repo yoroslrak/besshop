@@ -1,4 +1,3 @@
-@@ -1,76 +1,84 @@
 /* General styles */
 body {
     font-family: Arial, sans-serif;
@@ -37,7 +36,6 @@ header p {
     width: 40px;
     height: 40px;
     background-color: white;
-
 }
 
 /* Main section */
@@ -78,33 +76,44 @@ main {
     transition: 1s;
     background-color: rgb(227, 255, 227);
 }
+
 .tovar img {
     width: 150px;
     height: 200px;
-@@ -108,3 +116,39 @@
+}
+
+/* Footer styles */
 footer p {
     margin: 5px 0;
 }
-.koshik:hover{
+
+/* Cart icon hover effect */
+.koshik:hover {
     transform: scale(1.2);
     transition: 1s;
 }
+
 .koshik {
     transition: 1s;
 }
+
+/* Add to cart button styles */
 .add-to-cart {
     margin-top: 10px;
     padding: 5px 10px;
     cursor: pointer;
-    border:0px;
+    border: 0px;
     background-color: white;
     transition: 1s;
 }
-.tovar:hover   .add-to-cart{
-    background-color:rgb(180, 255, 180) ;
+
+.tovar:hover .add-to-cart {
+    background-color: rgb(180, 255, 180);
     transition: 1s;
     border: 1px solid black;
 }
+
+/* Cart info styles */
 .cart-info {
     display: none;
     position: absolute;
