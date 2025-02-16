@@ -122,9 +122,22 @@ footer p {
     transition: 1s;
 }
 
-.koshik {
-    transition: 1s;
+/* Додаємо стилі для спливаючого тексту */
+.cart-price {
+    display: none; /* Сховати ціну за замовчуванням */
+    position: absolute;
+    top: -25px; /* Позиція вище кошика */
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
 }
+.koshik:hover .cart-price {
+    display: block; /* Показати ціну при наведенні */
+}
+
 
 .add-to-cart {
     margin-top: 10px;
