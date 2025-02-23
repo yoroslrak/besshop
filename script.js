@@ -1,45 +1,72 @@
+// Масив для зберігання товарів у кошику
 let cart = [];
 
-// Получаем все кнопки "Добавить в корзину"
-const addToCartButtons = document.querySelectorAll('.add-to-cart');
+// Додаємо подію на кожну кнопку "Додати в кошик"
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function() {
+        // Отримуємо інформацію про товар з елементів даного товару
+        const productElement = this.closest('.tovar');
+        const productName = productElement.getAttribute('data-name');
+        const productPrice = parseFloat(productElement.getAttribute('data-price'));
 
-// Получаем элемент для отображения корзины
-const cartIcon = document.querySelector('.koshik');
-const cartInfo = document.createElement('div');
-cartInfo.classList.add('cart-info');
-cartIcon.parentElement.appendChild(cartInfo);
+        // Створюємо об'єкт товару
+        const product = {
+            name: productName,
+            price: productPrice
+        };
 
-// Функция для добавления товара в корзину
-function addToCart(product) {
-    // Получаем цену товара
-    const price = parseInt(product.getAttribute('data-price'));
-    // Добавляем товар в корзину (цену)
-    cart.push(price);
-    updateCartInfo();
-}
-
-// Функция для обновления информации о корзине
-function updateCartInfo() {
-    // Считаем общую цену
-    const total = cart.reduce((sum, price) => sum + price, 0);
-    // Обновляем текст в корзине
-    cartInfo.textContent = `Ціна: ${total} грн`;
-}
-
-// Добавляем обработчики событий на кнопки добавления товара в корзину
-addToCartButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const product = button.closest('.tovar');
-        addToCart(product);
+        // Додаємо товар в масив кошика
+        cart.push(product);
+        updateCartStatistics();
     });
 });
 
-// Показываем корзину при наведении на иконку
-cartIcon.addEventListener('mouseover', () => {
-    cartInfo.style.display = 'block';
-});
+// Функція для оновлення статистики кошика
+function updateCartStatistics() {
+    const cartCount = document.getElementById('cart-count');
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    
+    // Очищаємо список перед оновленням
+    cartItems.innerHTML = '';
 
-// Скрываем корзину, когда мышь покидает иконку
-cartIcon.addEventListener('mouseout', () => {
-    cartInfo.style.display = 'none';
+    // Оновлюємо кількість товарів
+    cartCount.textContent = cart.length;
+
+    // Оновлюємо загальну суму
+    let total = 0;
+    cart.forEach(item => {
+        total += item.price;
+        const li = document.createElement('li');
+        li.textContent = `${item.name} - ${item.price}грн`;
+        cartItems.appendChild(li);
+    });
+
+    // Оновлюємо загальну суму
+    cartTotal.textContent = total.toFixed(2);
+
+    // Показуємо блок статистики кошика
+    document.getElementById('cart-statistics').style.display = 'block';
+}
+
+// Функція для очищення кошика
+function clearCart() {
+    cart = []; // Очищаємо масив кошика
+    updateCartStatistics(); // Оновлюємо статистику
+}
+
+// Функція для закриття статистики кошика
+function closeCart() {
+    document.getElementById('cart-statistics').style.display = 'none';
+}
+
+// При натисканні на іконку кошика відкриваємо статистику
+document.getElementById('cart-icon').addEventListener('click', function() {
+    // Показуємо або ховаємо статистику кошика
+    const cartStatistics = document.getElementById('cart-statistics');
+    if (cartStatistics.style.display === 'block') {
+        cartStatistics.style.display = 'none';
+    } else {
+        cartStatistics.style.display = 'block';
+    }
 });
